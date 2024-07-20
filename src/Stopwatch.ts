@@ -1,16 +1,17 @@
+//Interface setup for 'dom' element inside the class
 interface StopwatchDom {
-  timer: number | null;
   currentTime: HTMLDivElement;
   wrapperBtns: HTMLDivElement; 
   startBtn: HTMLButtonElement;
   stopBtn: HTMLButtonElement;
   resetBtn: HTMLButtonElement;
-  dom: {[x: string]: HTMLElement};
+  [x: string]: HTMLElement;
 }
 
 abstract class Stopwatch {
   protected currentTime: number = 0;
-  private timer: number | null = null ;
+  protected convertedTime: string = '';
+  private timer: number | null = null;
   protected dom = {} as StopwatchDom;
 
   constructor(element: HTMLDivElement) {
@@ -57,6 +58,8 @@ abstract class Stopwatch {
     
     const formatedTime: string = `
     ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${String(milliseconds).padStart(2, '0')}`;
+   
+    this.convertedTime = formatedTime;
     this.renderTime(formatedTime);
   }
 

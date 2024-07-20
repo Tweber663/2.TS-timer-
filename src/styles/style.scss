@@ -25,6 +25,7 @@ body {
     margin: 2rem 0;
     font-weight: 500;
     letter-spacing: 1rem;
+    font-family: monospace;
   }
 
   &__button {
@@ -62,5 +63,8 @@ body {
       border-bottom: 1px dashed rgba(105, 127, 238, 0.25);
     }
   }
-  
+}
+
+.remove {
+  display: none;
 }
